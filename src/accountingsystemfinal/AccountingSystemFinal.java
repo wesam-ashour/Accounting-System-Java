@@ -123,5 +123,5 @@ private void LogFile() throws SQLException, IOException {
     }
 
     
-    // the project Finshed
+    // the project Finshed commit
 }
