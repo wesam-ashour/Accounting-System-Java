@@ -73,6 +73,7 @@ public class AccountingSystemFinal extends Application {
 
     }
 private void LogFile() throws SQLException, IOException {
+    
         File file = new File("LogFile.txt");
         PrintWriter output = new PrintWriter(file);
         ResultSet rs = AccountingSystemFinal.statement.executeQuery("SELECT * FROM `employee` ");
