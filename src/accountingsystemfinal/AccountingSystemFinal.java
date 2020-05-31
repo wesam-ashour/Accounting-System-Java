@@ -55,7 +55,7 @@ public class AccountingSystemFinal extends Application {
                 Logger.getLogger(AccountingSystemFinal.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login_View.fxml"));
         LogFile();
         scene = new Scene(root);
         primaryStage.setTitle("Login Page");
@@ -72,7 +72,37 @@ public class AccountingSystemFinal extends Application {
         launch(args);
 
     }
+private void LogFile() throws SQLException, IOException {
+        File file = new File("LogFile.txt");
+        PrintWriter output = new PrintWriter(file);
+        ResultSet rs = AccountingSystemFinal.statement.executeQuery("SELECT * FROM `employee` ");
+        output.print("employees :\n");
+        while (rs.next()) {
+            output.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
+                    + " | " + "Salary:" + rs.getDouble("salary") + " | " + "Email :" + rs.getString("Email") + " | " + "Password:" + rs.getString("Password") + " | " + "Phone :" + rs.getInt("Phone")
+                    + "\n");
+        }
+        rs = AccountingSystemFinal.statement.executeQuery("SELECT * FROM `customer` ");
+        output.print("Customers :\n");
+        while (rs.next()) {
+            output.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
+                    + " | " + "Salary:" + rs.getDouble("salary") + " | " + "Email:" + rs.getString("Email") + " | " + "Password:" + rs.getString("Password") + " | " + "Payment_Method:" + rs.getString("Payment_Method") + " | " + "Phone :" + rs.getInt("Phone")
+                    + "\n");
+        }output.close();
+        
 
+        File fileTRA = new File("Transaction.txt");
+        PrintWriter outputTra = new PrintWriter(fileTRA);
+        outputTra.print("Transaction :\n");
+        rs = AccountingSystemFinal.statement.executeQuery("Select * From `transaction`");
+        while (rs.next()) {
+            outputTra.print("Transaction_ID :" + rs.getInt("Transaction_ID") + " | " + "Customer id :" + rs.getInt("Customer id") + " | " + "Emp_ID:" + rs.getInt("Emp_ID")
+                    + " | " + "Transaction_Amount:" + rs.getDouble("Transaction_Amount") + " | " + " Transaction_Date :" + rs.getString("Transaction_Date") + " | " + "Payment_Method:" + rs.getString("Payment_Method") + " | " + "Command :" + rs.getString("Command")
+                    + "\n");
+        }outputTra.close();
+        
+    }
+    
     public static String hash(String pass) {
 
         String passwordToHash = pass;
@@ -92,37 +122,6 @@ public class AccountingSystemFinal extends Application {
         return generatedPassword;
     }
 
-    private void LogFile() throws SQLException, IOException {
-
-        File file = new File("LogFile.txt");
-        PrintWriter output = new PrintWriter(file);
-        ResultSet rs = AccountingSystemFinal.statement.executeQuery("SELECT * FROM `employee` ");
-        output.print("employees :\n");
-        while (rs.next()) {
-            output.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
-                    + " | " + "Salary:" + rs.getDouble("salary") + " | " + "Email :" + rs.getString("Email") + " | " + "Password:" + rs.getString("Password") + " | " + "Phone :" + rs.getInt("Phone")
-                    + "\n");
-
-        }
-        rs = AccountingSystemFinal.statement.executeQuery("SELECT * FROM `customer` ");
-        output.print("Customers :\n");
-        while (rs.next()) {
-            output.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
-                    + " | " + "Salary:" + rs.getDouble("salary") + " | " + "Email:" + rs.getString("Email") + " | " + "Password:" + rs.getString("Password") + " | " + "Payment_Method:" + rs.getString("Payment_Method") + " | " + "Phone :" + rs.getInt("Phone")
-                    + "\n");
-        }
-        output.close();
-
-        File fileTRA = new File("Transaction.txt");
-        PrintWriter outputTra = new PrintWriter(fileTRA);
-        outputTra.print("Transaction :\n");
-        rs = AccountingSystemFinal.statement.executeQuery("Select * From `transaction`");
-        while (rs.next()) {
-            outputTra.print("Transaction_ID :" + rs.getInt("Transaction_ID") + " | " + "Customer id :" + rs.getInt("Customer id") + " | " + "Emp_ID:" + rs.getInt("Emp_ID")
-                    + " | " + "Transaction_Amount:" + rs.getDouble("Transaction_Amount") + " | " + " Transaction_Date :" + rs.getString("Transaction_Date") + " | " + "Payment_Method:" + rs.getString("Payment_Method") + " | " + "Command :" + rs.getString("Command")
-                    + "\n");
-        }
-        outputTra.close();
-
-    }
+    
+    
 }
