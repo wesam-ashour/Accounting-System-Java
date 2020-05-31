@@ -72,24 +72,27 @@ public class AccountingSystemFinal extends Application {
         launch(args);
 
     }
+    
 private void LogFile() throws SQLException, IOException {
     
+    
+    
         File file = new File("LogFile.txt");
-        PrintWriter output = new PrintWriter(file);
+        PrintWriter outputC = new PrintWriter(file);
         ResultSet rs = AccountingSystemFinal.statement.executeQuery("SELECT * FROM `employee` ");
-        output.print("employees :\n");
+        outputC.print("employees :\n");
         while (rs.next()) {
-            output.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
+            outputC.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
                     + " | " + "Salary:" + rs.getDouble("salary") + " | " + "Email :" + rs.getString("Email") + " | " + "Password:" + rs.getString("Password") + " | " + "Phone :" + rs.getInt("Phone")
                     + "\n");
         }
         rs = AccountingSystemFinal.statement.executeQuery("SELECT * FROM `customer` ");
-        output.print("Customers :\n");
+        outputC.print("Customers :\n");
         while (rs.next()) {
-            output.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
+            outputC.print("ID:" + rs.getInt("ID") + " | " + "Name:" + rs.getString("Name") + " | " + "DOB:" + rs.getString("DOB")
                     + " | " + "Salary:" + rs.getDouble("salary") + " | " + "Email:" + rs.getString("Email") + " | " + "Password:" + rs.getString("Password") + " | " + "Payment_Method:" + rs.getString("Payment_Method") + " | " + "Phone :" + rs.getInt("Phone")
                     + "\n");
-        }output.close();
+        }outputC.close();
         
 
         File fileTRA = new File("Transaction.txt");
@@ -102,6 +105,9 @@ private void LogFile() throws SQLException, IOException {
                     + "\n");
         }outputTra.close();
         
+        
+        
+         // the project Finshed commit
     }
     
     public static String hash(String pass) {
