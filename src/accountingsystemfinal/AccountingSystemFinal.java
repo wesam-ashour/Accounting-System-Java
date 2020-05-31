@@ -62,7 +62,7 @@ public class AccountingSystemFinal extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         this.primaryStage = primaryStage;
-
+        
     }
 
     /**
@@ -123,5 +123,5 @@ private void LogFile() throws SQLException, IOException {
     }
 
     
-    
+    // the project Finshed
 }
