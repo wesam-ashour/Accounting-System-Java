@@ -222,7 +222,69 @@ public class AdminController implements Initializable {
 
     @FXML
     private void AdminEmpEditeHandle(ActionEvent event) throws SQLException {
-        
+        int ID = 0;
+        boolean AdminID = true;
+        boolean AdminName = true;
+        boolean AdminPhone = true;
+        boolean AdminDOB = true;
+        boolean AdminEmail = true;
+        boolean AdminPassword = true;
+        boolean AdminSalary = true;
+        try {
+            ID = Integer.parseInt(AdminEmpID.getText());
+        } catch (NumberFormatException n) {
+            AdminID = false;
+
+        }
+        String adminEmpName = AdminEmpName.getText();
+        String adminEmpPhone = AdminEmpPhone.getText();
+        String adminEmpDOB = AdminEmpDOB.getText();
+        String adminEmpEmail = AdminEmpEmail.getText();
+        String adminEmpPassword = AdminEmpPassword.getText();
+        String adminEmpSalary = AdminEmpSalary.getText();
+
+        if (adminEmpName.equals("")) {
+            AdminName = false;
+
+        }
+        if (adminEmpPhone.equals("")) {
+            AdminPhone = false;
+
+        }
+        if (adminEmpDOB.equals("")) {
+            AdminDOB = false;
+
+        }
+        if (adminEmpEmail.equals("")) {
+            AdminEmail = false;
+
+        }
+        if (adminEmpPassword.equals("")) {
+            AdminPassword = false;
+
+        }
+
+        Double grade = 0.0;
+        try {
+            grade = Double.parseDouble(AdminEmpSalary.getText());
+        } catch (NumberFormatException e) {
+            AdminSalary = false;
+
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Edite Order");
+        alert.setHeaderText("Are You Sure ? ");
+        alert.setContentText("In this case the order will Edite in database ");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            if (AdminID && AdminName && AdminPhone && AdminDOB && AdminEmail && AdminPassword && AdminSalary) {
+                ResultSet s = statement.executeQuery("select ID from employee where ID = " + ID);
+                String sql = "UPDATE `employee` SET `Name` = '" + AdminEmpName.getText() + "', `DOB` = '" + AdminEmpDOB.getText() + "', `Email` = '" + AdminEmpEmail.getText() + "', `Password` = '" + AdminEmpPassword.getText() + "',`Salary` = '" + AdminEmpSalary.getText() + "', `Phone` = '" + AdminEmpPhone.getText() + "' WHERE `employee`.`ID` = " + AdminEmpID.getText() + "";
+                statement.executeUpdate(sql);
+                SH();
+                clearAllStudent();
+            }
+        }
          
     }
 
@@ -240,7 +302,72 @@ public class AdminController implements Initializable {
 
     @FXML
     private void AdminEmpDeleteHandle(ActionEvent event) throws SQLException {
-        
+        int ID = 0;
+        boolean AdminID = true;
+        boolean AdminName = true;
+        boolean AdminPhone = true;
+        boolean AdminDOB = true;
+        boolean AdminEmail = true;
+        boolean AdminPassword = true;
+        boolean AdminSalary = true;
+        try {
+            ID = Integer.parseInt(AdminEmpID.getText());
+        } catch (NumberFormatException n) {
+            AdminID = false;
+
+        }
+        String adminEmpName = AdminEmpName.getText();
+        String adminEmpPhone = AdminEmpPhone.getText();
+        String adminEmpDOB = AdminEmpDOB.getText();
+        String adminEmpEmail = AdminEmpEmail.getText();
+        String adminEmpPassword = AdminEmpPassword.getText();
+        String adminEmpSalary = AdminEmpSalary.getText();
+
+        if (adminEmpName.equals("")) {
+            AdminName = false;
+
+        }
+        if (adminEmpPhone.equals("")) {
+            AdminPhone = false;
+
+        }
+        if (adminEmpDOB.equals("")) {
+            AdminDOB = false;
+
+        }
+        if (adminEmpEmail.equals("")) {
+            AdminEmail = false;
+
+        }
+        if (adminEmpPassword.equals("")) {
+            AdminPassword = false;
+
+        }
+
+        Double grade = 0.0;
+        try {
+            grade = Double.parseDouble(AdminEmpSalary.getText());
+        } catch (NumberFormatException e) {
+            AdminSalary = false;
+
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Order");
+        alert.setHeaderText("Are You Sure ? ");
+        alert.setContentText("In this case the order elete to database ");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            if (AdminID && AdminName && AdminPhone && AdminDOB && AdminEmail && AdminPassword && AdminSalary) {
+                ResultSet rs = statement.executeQuery("select ID from employee where ID = " + ID);
+                if (rs.next()) {
+                    String sql = "delete from employee where ID = " + ID;
+                    statement.executeUpdate(sql);
+                    SH();
+                    clearAllStudent();
+                } else {
+                }
+            }
+        }
 
     }
 
@@ -412,7 +539,78 @@ public class AdminController implements Initializable {
 
     @FXML
     private void AdminCusDeleteHandle(ActionEvent event) throws SQLException {
-        
+        int ID = 0;
+        boolean CusID = true;
+        boolean CusName = true;
+        boolean CusDOB = true;
+        boolean CusEmail = true;
+        boolean CusPassword = true;
+        boolean CusPayment = true;
+        boolean CusSalary = true;
+        boolean CusPhone = true;
+        try {
+            ID = Integer.parseInt(AdminCusID.getText());
+        } catch (NumberFormatException n) {
+            CusID = false;
+
+        }
+        String adminEmpName = AdminCusName.getText();
+        String adminEmpDOB = AdminCusDOB.getText();
+        String adminEmpEmail = AdminCusEmail.getText();
+        String adminEmpPassword = AdminCusPassword.getText();
+        String AdminEmpPayment = AdminCusPayment.getText();
+        String adminEmpSalary = AdminCusSalary.getText();
+        String adminEmpPhone = AdminCusPhone.getText();
+
+        if (adminEmpName.equals("")) {
+            CusName = false;
+
+        }
+        if (adminEmpPhone.equals("")) {
+            CusPhone = false;
+
+        }
+        if (adminEmpDOB.equals("")) {
+            CusDOB = false;
+
+        }
+        if (adminEmpEmail.equals("")) {
+            CusEmail = false;
+
+        }
+        if (adminEmpPassword.equals("")) {
+            CusPassword = false;
+
+        }
+        if (AdminEmpPayment.equals("")) {
+            CusPassword = false;
+
+        }
+
+        Double grade = 0.0;
+        try {
+            grade = Double.parseDouble(AdminCusSalary.getText());
+        } catch (NumberFormatException e) {
+            CusSalary = false;
+
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Order");
+        alert.setHeaderText("Are You Sure ? ");
+        alert.setContentText("In this case the order Delete From database ");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            if (CusID && CusName && CusPhone && CusDOB && CusEmail && CusPassword && CusSalary & CusPayment) {
+                ResultSet rs = statement.executeQuery("select ID from customer where ID = " + ID);
+                if (rs.next()) {
+                    String sql = "delete from customer where ID = " + ID;
+                    statement.executeUpdate(sql);
+                    SHcus();
+                    ClearCus();
+                } else {
+                }
+            }
+        }
     }
 
     @FXML
@@ -436,7 +634,75 @@ public class AdminController implements Initializable {
 
     @FXML
     private void AdminCusEditeHandle(ActionEvent event) throws SQLException {
-         
+         int ID = 0;
+        boolean CusID = true;
+        boolean CusName = true;
+        boolean CusDOB = true;
+        boolean CusEmail = true;
+        boolean CusPassword = true;
+        boolean CusPayment = true;
+        boolean CusSalary = true;
+        boolean CusPhone = true;
+        try {
+            ID = Integer.parseInt(AdminCusID.getText());
+        } catch (NumberFormatException n) {
+            CusID = false;
+
+        }
+        String adminEmpName = AdminCusName.getText();
+        String adminEmpDOB = AdminCusDOB.getText();
+        String adminEmpEmail = AdminCusEmail.getText();
+        String adminEmpPassword = AdminCusPassword.getText();
+        String AdminEmpPayment = AdminCusPayment.getText();
+        String adminEmpSalary = AdminCusSalary.getText();
+        String adminEmpPhone = AdminCusPhone.getText();
+
+        if (adminEmpName.equals("")) {
+            CusName = false;
+
+        }
+        if (adminEmpPhone.equals("")) {
+            CusPhone = false;
+
+        }
+        if (adminEmpDOB.equals("")) {
+            CusDOB = false;
+
+        }
+        if (adminEmpEmail.equals("")) {
+            CusEmail = false;
+
+        }
+        if (adminEmpPassword.equals("")) {
+            CusPassword = false;
+
+        }
+        if (AdminEmpPayment.equals("")) {
+            CusPassword = false;
+
+        }
+
+        Double grade = 0.0;
+        try {
+            grade = Double.parseDouble(AdminCusSalary.getText());
+        } catch (NumberFormatException e) {
+            CusSalary = false;
+
+        }
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Edite Order");
+        alert.setHeaderText("Are You Sure ? ");
+        alert.setContentText("In this case the order will Edite in database ");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            if (CusID && CusName && CusPhone && CusDOB && CusEmail && CusPassword && CusSalary & CusPayment) {
+                ResultSet s = statement.executeQuery("select ID from customer where ID = " + ID);
+                String sql = "UPDATE `customer` SET `Name` = '" + AdminCusName.getText() + "', `DOB` = '" + AdminCusDOB.getText() + "', `Email` = '" + AdminCusEmail.getText() + "', `Password` = '" + AdminCusPassword.getText() + "',`Payment_Method` = '" + AdminCusPayment.getText() + "', `Salary` = '" + AdminCusSalary.getText() + "', `Phone` = '" + AdminCusPhone.getText() + "' WHERE `customer`.`ID` = " + AdminCusID.getText() + "";
+                statement.executeUpdate(sql);
+                SHcus();
+                ClearCus();
+            }
+        }
     }
 
     private void SHTra() throws SQLException {
