@@ -1,0 +1,4 @@
+Transaction :
+Transaction_ID :1 | Customer id :1 | Emp_ID:5 | Transaction_Amount:5000.0 |  Transaction_Date :31/05/2020 | Payment_Method:cash | Command :Nothing
+Transaction_ID :2 | Customer id :1 | Emp_ID:5 | Transaction_Amount:20.0 |  Transaction_Date :31/05/2020 | Payment_Method:cash | Command :Nothing
+Transaction_ID :3 | Customer id :1 | Emp_ID:5 | Transaction_Amount:30.0 |  Transaction_Date :31/05/2020 | Payment_Method:cash | Command :Nothing

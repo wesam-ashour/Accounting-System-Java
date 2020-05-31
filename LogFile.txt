@@ -1,0 +1,5 @@
+employees :
+ID:1 | Name:Mohammed | DOB:10-12-1965 | Salary:8000.0 | Email :mohamm@employee.com | Password:c7a7734da6c3f44716a2f4b2b54f2535 | Phone :59826181
+ID:5 | Name:Azoo | DOB:2323 | Salary:2121.0 | Email :ali@employee.com | Password:c7a7734da6c3f44716a2f4b2b54f2535 | Phone :2323
+Customers :
+ID:1 | Name:Azez | DOB:10-05-1999 | Salary:4950.0 | Email:azez@gmail.com | Password:31ce856f02516682afddf61bb8079f01 | Payment_Method:Paypal | Phone :597420012

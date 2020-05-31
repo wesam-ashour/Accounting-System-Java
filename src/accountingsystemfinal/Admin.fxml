@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="778.0" style="-fx-background-color: #162447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="accountingsystemfinal.AdminController">
+   <children>
+      <HBox layoutY="-1.0" prefHeight="554.0" prefWidth="778.0">
+         <children>
+            <TabPane prefHeight="554.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="AdminEMP" text="Employee">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="775.0">
+                           <children>
+                              <Button layoutX="532.0" layoutY="471.0" mnemonicParsing="false" onAction="#AdminEmpEditeHandle" prefHeight="25.0" prefWidth="65.0" text="Edite" />
+                              <Button layoutX="288.0" layoutY="471.0" mnemonicParsing="false" onAction="#AdminEmpClearHandle" prefHeight="25.0" prefWidth="65.0" text="Clear" />
+                              <TableView fx:id="AdminEmpTabelView" layoutX="249.0" layoutY="64.0" prefHeight="375.0" prefWidth="515.0">
+                                <columns>
+                                  <TableColumn fx:id="AdminEmpIdTableColumn" prefWidth="63.0" text="ID" />
+                                  <TableColumn fx:id="AdminEmpNameTableColumn" prefWidth="79.0" text="Name" />
+                                    <TableColumn fx:id="AdminEmpPhoneTableColumn" prefWidth="71.0" text="Phone" />
+                                    <TableColumn fx:id="AdminEmpDOBTableColumn" prefWidth="76.0" text="DOB" />
+                                    <TableColumn fx:id="AdminEmpEmailTableColumn" prefWidth="86.0" text="Email" />
+                                    <TableColumn fx:id="AdminEmpPasswordTableColumn" prefWidth="75.0" text="Password" />
+                                    <TableColumn fx:id="AdminEmpSalaryTableColumn" prefWidth="75.0" text="Salary" />
+                                </columns>
+                              </TableView>
+                              <Button layoutX="650.0" layoutY="471.0" mnemonicParsing="false" onAction="#AdminEmpDeleteHandle" prefHeight="25.0" prefWidth="65.0" text="Delete" />
+                              <Button layoutX="415.0" layoutY="471.0" mnemonicParsing="false" onAction="#AdminEmpAddHandle" prefHeight="25.0" prefWidth="65.0" text="Add" />
+                              <HBox layoutX="14.0" layoutY="63.0" prefHeight="377.0" prefWidth="227.0" style="-fx-background-color: #363636;">
+                                 <children>
+                                    <GridPane prefHeight="228.0" prefWidth="215.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                          <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <TextField fx:id="AdminEmpID" GridPane.columnIndex="1" />
+                                          <TextField fx:id="AdminEmpName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="AdminEmpPhone" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="AdminEmpDOB" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="AdminEmpPassword" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="AdminEmpSalary" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="AdminEmpEmail" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label text="ID" textFill="#00ee3b" />
+                                          <Label text="Name" textFill="#00ee3b" GridPane.rowIndex="1" />
+                                          <Label id="Phone-e" text="Phone" textFill="#00ee3b" GridPane.rowIndex="2" />
+                                          <Label id="DOB-e" text="DOB" textFill="#00ee3b" GridPane.rowIndex="3" />
+                                          <Label id="Email-e" text="Email" textFill="#00ee3b" GridPane.rowIndex="4" />
+                                          <Label id="Password-e" text="Password" textFill="#00ee3b" GridPane.rowIndex="5" />
+                                          <Label text="Salary" textFill="#00ee3b" GridPane.rowIndex="6" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                              <Label layoutX="63.0" layoutY="14.0" prefHeight="53.0" prefWidth="156.0" text="You can add here" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="428.0" layoutY="14.0" prefHeight="53.0" prefWidth="169.0" text="You can show records here " textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="AdminCUS" text="Customer">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <HBox layoutY="75.0" prefHeight="375.0" prefWidth="204.0" style="-fx-background-color: #363636;">
+                                 <children>
+                                    <GridPane prefHeight="228.0" prefWidth="215.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="103.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <TextField fx:id="AdminCusID" GridPane.columnIndex="1" />
+                                          <TextField fx:id="AdminCusName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="AdminCusDOB" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="AdminCusEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="AdminCusPayment" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="AdminCusSalary" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="AdminCusPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label text="ID" textFill="#00ee3b" />
+                                          <Label text="Name" textFill="#00ee3b" GridPane.rowIndex="1" />
+                                          <Label id="Phone-e" text="DOB" textFill="#00ee3b" GridPane.rowIndex="2" />
+                                          <Label id="DOB-e" text="Email" textFill="#00ee3b" GridPane.rowIndex="3" />
+                                          <Label id="Email-e" text="Password" textFill="#00ee3b" GridPane.rowIndex="4" />
+                                          <Label id="Password-e" text="Payment Method" textFill="#00ee3b" GridPane.rowIndex="5" />
+                                          <Label text="Salary" textFill="#00ee3b" GridPane.rowIndex="6" />
+                                          <Label text="Phone" textFill="#00ee3b" GridPane.rowIndex="7" />
+                                          <TextField fx:id="AdminCusPhone" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="AdminCusTabelView" layoutX="215.0" layoutY="78.0" prefHeight="369.0" prefWidth="563.0">
+                                 <columns>
+                                    <TableColumn fx:id="AdminCusIdTableColumn" prefWidth="47.0" text="ID" />
+                                    <TableColumn fx:id="AdminCusNameTableColumn" prefWidth="72.0" text="Name" />
+                                    <TableColumn fx:id="AdminCusDOBTableColumn" prefWidth="72.0" text="DOB" />
+                                    <TableColumn fx:id="AdminCusEmailTableColumn" prefWidth="76.0" text="Email" />
+                                    <TableColumn fx:id="AdminCusPasswordTableColumn" text="Password" />
+                                    <TableColumn fx:id="AdminCusPaymentTableColumn" prefWidth="108.0" text="Payment Method" />
+                                    <TableColumn fx:id="AdminCusSalaryTableColumn" prefWidth="47.0" text="Salary" />
+                                    <TableColumn fx:id="AdminCusPhoneTableColumn" prefWidth="75.0" text="Phone" />
+                                 </columns>
+                              </TableView>
+                              <Button layoutX="407.0" layoutY="465.0" mnemonicParsing="false" onAction="#AdminCusAddHandle" prefHeight="25.0" prefWidth="65.0" text="Add" />
+                              <Button layoutX="670.0" layoutY="465.0" mnemonicParsing="false" onAction="#AdminCusDeleteHandle" prefHeight="25.0" prefWidth="65.0" text="Delete" />
+                              <Button layoutX="286.0" layoutY="465.0" mnemonicParsing="false" onAction="#AdminCusClearHandle" prefHeight="25.0" prefWidth="65.0" text="Clear" />
+                              <Button layoutX="542.0" layoutY="465.0" mnemonicParsing="false" onAction="#AdminCusEditeHandle" prefHeight="25.0" prefWidth="65.0" text="Edite" />
+                              <Label layoutX="47.0" layoutY="14.0" prefHeight="53.0" prefWidth="156.0" text="You can add here" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="425.0" layoutY="14.0" prefHeight="53.0" prefWidth="169.0" text="You can show records here" textFill="RED">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab fx:id="AdminTra" text="Transaction records">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="496.0" prefWidth="730.0">
+                           <children>
+                              <TabPane layoutX="1.0" layoutY="-8.0" prefHeight="533.0" prefWidth="778.0" tabClosingPolicy="UNAVAILABLE" />
+                              <TableView fx:id="Admintraemp" layoutX="-3.0" prefHeight="525.0" prefWidth="784.0">
+                                 <columns>
+                                    <TableColumn fx:id="AdminTraTransactionID" prefWidth="108.0" text="Transaction ID" />
+                                    <TableColumn fx:id="AdminTraCustomerID" prefWidth="92.0" text="Customer ID" />
+                                    <TableColumn fx:id="AdminTraEmployeeID" prefWidth="84.0" text="Employee ID" />
+                                    <TableColumn fx:id="AdminTraTransactionDate" prefWidth="103.0" text="Transaction Date" />
+                                    <TableColumn fx:id="AdminTraPaymentType" prefWidth="103.0" text="Payment Type" />
+                                    <TableColumn fx:id="AdminTraTransactionAmount" prefWidth="128.0" text="Transaction Amount" />
+                                    <TableColumn fx:id="AdminTraCommand" prefWidth="165.0" text="Command" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
